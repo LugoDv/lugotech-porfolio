@@ -1,6 +1,7 @@
 ---
 import Button from "./Button.astro";
 import CodeIcon from "./CodeIcon.astro";
+import MessageIcon from "./MessageIcon.astro";
 ---
 
 <style>
@@ -70,15 +71,12 @@ import CodeIcon from "./CodeIcon.astro";
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button variant="primary">
+        <Button variant="primary" href="#projects">
           <CodeIcon /> Ver Proyectos
         </Button>
-        <a
-          href="#contact"
-          class="px-8 py-4 bg-transparent hover:bg-Neutral-100 dark:hover:bg-Neutral-700 text-Text-dark dark:text-Text-light border-2 border-Neutral-300 dark:border-Neutral-600 font-semibold rounded-lg transition-all"
-        >
-          Contactar
-        </a>
+        <Button variant="outline" href="#contact">
+          <MessageIcon /> Contactar
+        </Button>
       </div>
     </div>
   </div>
