@@ -1,13 +1,18 @@
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   /* --- COLORES BASE (Modo Claro) --- */
-  --color-Background-light: hsl(0, 0%, 97%);
+  --color-Background-light: hsl(240 100% 98.0392%);
   --color-Text-dark: hsl(227, 32%, 31%);
+  --color-Border: hsl(195 4.4444% 82.3529%);
 
   /* --- SUPERFICIES --- */
-  --color-card-surface: hsl(0, 0%, 100%);
+  --color-card-surface: hsl(0 0% 100%);
   --color-card-text: hsl(227, 32%, 31%);
 
   /* --- MARCA Y ACCIONES --- */
@@ -24,12 +29,16 @@
   /* --- TIPOGRAFÍA --- */
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
 
-  --color-Background-dark: hsl(227, 55%, 11%);
+  /* --- COLORES BASE (Modo Oscuro) --- */
+  --color-Background-dark: hsl(240 26.8293% 8.0392%);
   --color-Text-light: hsl(0, 0%, 88%);
 
   /* --- SUPERFICIES --- */
+
+  --primary-Forenground-dark: #0d1b2a;
   --color-card-surface-dark: hsl(227, 45%, 15%);
   --color-card-text-dark: hsl(0, 0%, 88%);
+  --color-Border-dark: hsl(211.5789 24.6753% 30.1961%);
 
   /* --- MARCA Y ACCIONES --- */
   --color-Orange-vibrant-dark: hsl(22, 100%, 64%);
@@ -83,8 +92,4 @@
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-full: 9999px;
-}
-
-@theme (dark) {
-  /* --- COLORES BASE (Modo Oscuro) --- */
 }

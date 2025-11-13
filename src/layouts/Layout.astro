@@ -1,9 +1,13 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+  class?:string;
+}
 ---
 
 <!doctype html>
-<html lang="en" class="">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -12,8 +16,12 @@ import "../styles/global.css";
 
     <title>Astro Basics</title>
   </head>
-  <body>
+  <body class={Astro.props.class}>
     <slot />
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/flowbite@4.0.0/dist/flowbite.min.js"
+    ></script>
   </body>
 </html>
 
