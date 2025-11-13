@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* --- COLORES BASE (Modo Claro) --- */
+  --color-Background-light: hsl(0, 0%, 97%);
+  --color-Text-dark: hsl(227, 32%, 31%);
+
+  /* --- SUPERFICIES --- */
+  --color-card-surface: hsl(0, 0%, 100%);
+  --color-card-text: hsl(227, 32%, 31%);
+
+  /* --- MARCA Y ACCIONES --- */
+  --color-Orange-vibrant: hsl(27, 100%, 51%);
+  --color-Orange-vibrant-text: hsl(0, 0%, 100%);
+  --color-Cyan-accent: hsl(180, 100%, 50%);
+  --color-Cyan-accent-text: hsl(227, 32%, 31%);
+
+  /* --- UTILIDADES --- */
+  --color-Neutral-100: hsl(210, 17%, 94%);
+  --color-Neutral-300: hsl(0, 0%, 82%);
+  --color-Error: hsl(353, 100%, 64%);
+
+  /* --- TIPOGRAFÍA --- */
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --color-Background-dark: hsl(227, 55%, 11%);
+  --color-Text-light: hsl(0, 0%, 88%);
+
+  /* --- SUPERFICIES --- */
+  --color-card-surface-dark: hsl(227, 45%, 15%);
+  --color-card-text-dark: hsl(0, 0%, 88%);
+
+  /* --- MARCA Y ACCIONES --- */
+  --color-Orange-vibrant-dark: hsl(22, 100%, 64%);
+  --color-Orange-vibrant-text-dark: hsl(227, 55%, 11%);
+  --color-Cyan-accent-dark: hsl(185, 100%, 61%);
+  --color-Cyan-accent-text-dark: hsl(227, 55%, 11%);
+
+  /* --- UTILIDADES --- */
+  --color-Neutral-700-dark: hsl(227, 32%, 27%);
+  --color-Neutral-600-dark: hsl(227, 30%, 38%);
+  --color-Error-dark: hsl(353, 100%, 64%);
+
+  /* Tamaños de texto */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+
+  /* Pesos de fuente */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Altura de línea */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Espaciado */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+
+  /* Esquinas redondeadas */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+}
+
+@theme (dark) {
+  /* --- COLORES BASE (Modo Oscuro) --- */
+}
