@@ -5,6 +5,9 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+}
+
 @theme {
   /* --- COLORES BASE (Modo Claro) --- */
   --color-Background-light: hsl(240 100% 98.0392%);
@@ -35,7 +38,7 @@
 
   /* --- SUPERFICIES --- */
 
-  --primary-Forenground-dark: #0d1b2a;
+  --color-Forenground-dark: hsl(211.0345 52.7273% 10.7843%);
   --color-card-surface-dark: hsl(227, 45%, 15%);
   --color-card-text-dark: hsl(0, 0%, 88%);
   --color-Border-dark: hsl(211.5789 24.6753% 30.1961%);
