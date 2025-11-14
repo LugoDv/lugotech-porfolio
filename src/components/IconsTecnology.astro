@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+  size?: number;
+}
+
+import * as simpleIcons from "simple-icons";
+
+const { name, class: className, size = 24 } = Astro.props;
+
+// Convertir nombre a formato correcto (ej: 'react' -> 'siReact')
+const iconKey = `si${name.charAt(0).toUpperCase()}${name.slice(1).toLowerCase()}`;
+const icon = (simpleIcons as any)[iconKey];
+
+if (!icon) {
+  console.warn(`Icono no encontrado para: ${name} (buscado como ${iconKey})`);
+}
+
+const svgContent = icon?.svg || "";
+const iconColor = icon?.hex || "000000";
+---
+
+{
+  icon && (
+    <div
+      class:list={["inline-block", className]}
+      style={`color: #${iconColor};`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width={size}
+        height={size}
+        fill="currentColor"
+        set:html={svgContent}
+      />
+    </div>
+  )
+}
