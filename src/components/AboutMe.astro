@@ -9,10 +9,12 @@ import Badge from "./badge.astro";
 <section class="about-me py-20 text-Foreground-dark dark:text-Background-light">
   <h2 class="text-center text-3xl font-bold pb-8">About Me</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-7xl mx-auto px-4"
+  >
     <!-- tarjeta izquierda -->
     <div
-      class="bg-neutral-primary-soft text-body block max-w-sm p-6 border border-default rounded-base shadow-xs"
+      class="bg-neutral-primary-soft text-body block w-full p-6 border border-default rounded-base shadow-xs"
     >
       <h3
         class="mb-3 text-2xl font-bold text-Forenground-dark dark:text-Background-light tracking-tight leading-8"
@@ -68,7 +70,7 @@ import Badge from "./badge.astro";
     </div>
     <!-- tarjeta derecha -->
     <div
-      class="bg-neutral-primary-soft py-6 block max-w-sm p-6 border border-default rounded-base shadow-xs"
+      class="bg-neutral-primary-soft py-6 block w-full p-6 border border-default rounded-base shadow-xs"
     >
       <h3 class="mb-3 text-2xl font-bold tracking-tight leading-8">
         <CodeIcon
