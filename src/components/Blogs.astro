@@ -1,0 +1,56 @@
+---
+import PatternSquare from "./PatternSquare.astro";
+import BlogCard from "./BlogCard.astro";
+import Button from "./Button.astro";
+---
+
+<section
+  id="blogs"
+  class="relative py-20 overflow-hidden bg-white dark:bg-black"
+>
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <PatternSquare />
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4 dark:text-white">Latest Blog Posts</h2>
+      <p class="font-medium text-lg text-body dark:text-body-light">
+        Thoughts, tutorials, and insights about web development and technology.
+      </p>
+    </div>
+
+    <!-- Blog Cards -->
+    <div class="max-w-5xl mx-auto space-y-6">
+      <BlogCard
+        title="Mastering React Hooks: A Deep Dive"
+        excerpt="Explore the power of React Hooks to manage state and side effects in functional components, with practical examples and best practices."
+        imageUrl="/docs/images/blog/image-1.jpg"
+        postUrl="#"
+        tags={["React", "JavaScript", "Frontend"]}
+        date="May 10, 2025"
+      />
+      <BlogCard
+        title="Building Scalable APIs with Node.js"
+        excerpt="Learn how to design and implement robust RESTful APIs using Node.js, Express, and MongoDB for production-ready applications."
+        imageUrl="/docs/images/blog/image-1.jpg"
+        postUrl="#"
+        tags={["Node.js", "Backend", "API"]}
+        date="April 22, 2025"
+      />
+      <BlogCard
+        title="CSS Grid vs Flexbox: When to Use Each"
+        excerpt="A comprehensive guide to understanding the differences between CSS Grid and Flexbox, with real-world examples and use cases."
+        imageUrl="/docs/images/blog/image-1.jpg"
+        postUrl="#"
+        tags={["CSS", "Frontend", "Design"]}
+        date="March 15, 2025"
+      />
+    </div>
+    <div class="mt-10 text-center">
+      <Button variant="primary">View All Posts</Button>
+    </div>
+  </div>
+</section>
