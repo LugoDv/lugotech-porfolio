@@ -39,6 +39,7 @@
   /* --- SUPERFICIES --- */
 
   --color-Forenground-dark: hsl(211.0345 52.7273% 10.7843%);
+  --color-Text-Muted-dark: hsl(212.5714 32.7103% 20.9804%);
   --color-card-surface-dark: hsl(227, 45%, 15%);
   --color-card-text-dark: hsl(0, 0%, 88%);
   --color-Border-dark: hsl(211.5789 24.6753% 30.1961%);

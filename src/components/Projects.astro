@@ -1,0 +1,43 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section class="projects flex flex-col justify-center py-20">
+  <div>
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4 dark:text-white">Latest Projects</h2>
+      <p class="font-medium text-lg text-body dark:text-body-light">
+        A collection of my recent work, showcasing innovative solutions and
+        clean code. Click to explore details.
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 gap-8 place-items-center md:grid-cols-2 xl:grid-cols-3"
+    >
+      <ProjectCard
+        title="Taskify App"
+        description="A task management app with real-time collaboration, built using React, Node.js, and MongoDB."
+        imageUrl="/docs/images/blog/image-1.jpg"
+        projectUrl="#"
+        tecnologies={["React", "Node.js", "MongoDB"]}
+        icons={"MessajeIcon"}
+      />
+      <ProjectCard
+        title="E-Commerce Platform"
+        description="A scalable e-commerce platform with integrated payment gateways and user-friendly interface."
+        imageUrl="/docs/images/blog/image-1.jpg"
+        projectUrl="#"
+        tecnologies={["Vue.js", "Express", "MySQL"]}
+        icons={"MessajeIcon"}
+      />
+      <ProjectCard
+        title="Portfolio Website"
+        description="A personal portfolio website to showcase projects and skills, built with Gatsby and GraphQL."
+        imageUrl="/docs/images/blog/image-1.jpg"
+        projectUrl="#"
+        tecnologies={["Gatsby", "GraphQL", "CSS"]}
+        icons={"MessajeIcon"}
+      />
+    </div>
+  </div>
+</section>

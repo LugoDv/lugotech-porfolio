@@ -1,0 +1,25 @@
+---
+interface Props {
+  label: string;
+  percentage: number;
+  class?: string;
+}
+
+const { label, percentage, class: className } = Astro.props;
+---
+
+<div class:list={["space-y-2", className]}>
+  <div class="flex justify-between mb-1">
+    <span class="font-medium text-Foreground-dark dark:text-gray-300"
+      >{label}</span
+    >
+    <span class="font-medium text-body">{percentage}%</span>
+  </div>
+  <div class="w-full bg-neutral-quaternary rounded-full h-2">
+    <div
+      class="bg-Orange-vibrant dark:bg-Orange-vibrant-dark h-2 rounded-full transition-all duration-300"
+      style={`width: ${percentage}%`}
+    >
+    </div>
+  </div>
+</div>

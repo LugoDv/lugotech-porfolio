@@ -3,11 +3,17 @@ interface Props {
   name: string;
   class?: string;
   size?: number;
+  useOriginalColor?: boolean;
 }
 
 import * as simpleIcons from "simple-icons";
 
-const { name, class: className, size = 24 } = Astro.props;
+const {
+  name,
+  class: className,
+  size = 24,
+  useOriginalColor = false,
+} = Astro.props;
 
 // Convertir nombre a formato correcto (ej: 'react' -> 'siReact')
 const iconKey = `si${name.charAt(0).toUpperCase()}${name.slice(1).toLowerCase()}`;
@@ -25,7 +31,7 @@ const iconColor = icon?.hex || "000000";
   icon && (
     <div
       class:list={["inline-block", className]}
-      style={`color: #${iconColor};`}
+      style={useOriginalColor ? `color: #${iconColor};` : undefined}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

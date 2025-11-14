@@ -34,10 +34,10 @@ import MessageIcon from "./MessageIcon.astro";
       >
         <span class="relative flex h-2 w-2">
           <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-Orange-vibrant opacity-75"
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-Orange-vibrant dark:bg-Orange-vibrant-dark opacity-75"
           ></span>
           <span
-            class="relative inline-flex rounded-full h-2 w-2 bg-Orange-vibrant"
+            class="relative inline-flex rounded-full h-2 w-2 bg-Orange-vibrant dark:bg-Orange-vibrant-dark"
           ></span>
         </span>
         Disponible para nuevos proyectos
@@ -56,9 +56,14 @@ import MessageIcon from "./MessageIcon.astro";
         <h1
           class="text-4xl md:text-5xl lg:text-6xl xl:text-5xl font-bold text-Text-dark dark:text-Text-light"
         >
-          Soluciones <span class="text-Orange-vibrant">Innovadoras</span>
+          Soluciones <span
+            class="text-Orange-vibrant dark:text-Orange-vibrant-dark"
+            >Innovadoras</span
+          >
           <br />
-          para tu <span class="text-Cyan-accent">Proyecto</span>
+          para tu <span class="text-Cyan-accent dark:text-Cyan-accent-dark"
+            >Proyecto</span
+          >
         </h1>
 
         <p
