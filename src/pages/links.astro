@@ -12,7 +12,7 @@ import LinkedInIcon from "../components/LinkedInIcon.astro";
       <!-- Header / Perfil -->
       <!-- Badge -->
       <div
-        class="inline-flex items-center mb-2 gap-2 px-4 py-2 bg-Orange-vibrant/10 border border-Orange-vibrant/30 rounded-full text-xs xl:text-xs xl:px-3 xl:py-1.5 text-Text-dark dark:text-Text-light"
+        class="inline-flex items-center mb-4 gap-2 px-4 py-2 bg-Orange-vibrant/10 border border-Orange-vibrant/30 rounded-full text-xs xl:text-xs xl:px-3 xl:py-1.5 text-Text-dark dark:text-Text-light"
       >
         <span class="relative flex h-2 w-2">
           <span
@@ -34,12 +34,19 @@ import LinkedInIcon from "../components/LinkedInIcon.astro";
             class="w-32 h-32 rounded-full mb:w-64 mb:h-64"
           />
         </div>
+        <!-- <div class="relative m-auto inline-block blur-shadow">
+          <img
+            class="w-32 h-32 p-1 rounded-full ring-2 ring-default"
+            src="/src/assets/images/perfil.png"
+            alt=""
+          />
+        </div> -->
 
         <!-- Nombre y descripción -->
-        <h1 class="text-2xl font-bold text-Text-dark dark:text-Text-light mb-3">
+        <h1 class="text-2xl font-bold text-Text-dark dark:text-Text-light">
           Fabian Lugo
         </h1>
-        <p class="text-lg text-Text-dark/80 dark:text-Text-light/80 mb-4">
+        <p class="text-md text-Text-dark/80 dark:text-Text-light/80 mb-4">
           Desarrollador Full Stack | Creador de contenido
         </p>
 
@@ -47,7 +54,7 @@ import LinkedInIcon from "../components/LinkedInIcon.astro";
         <div class="space-y-4 mb-8 w-full">
           <LinkTreeItem
             href="http://localhost:4321/"
-            title="Portfolio"
+            title="Portafolio"
             description="Explora mis proyectos y trabajos"
           >
             <IconsTecnology name="googlechrome" size={28} slot="icon" />

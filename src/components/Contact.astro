@@ -21,7 +21,13 @@ import IconsTecnology from "./IconsTecnology.astro";
         >
           Enviar mensaje
         </h3>
-        <form class="space-y-6 text-left">
+        <form id="conctact-form" class="space-y-6 text-left" method="POST">
+          <input
+            type="hidden"
+            name="access_key"
+            value="ded2113a-20eb-4f9c-bfaa-b71fa6276ec8"
+          />
+
           <div>
             <label
               for="name"
@@ -32,6 +38,7 @@ import IconsTecnology from "./IconsTecnology.astro";
             <input
               type="text"
               id="name"
+              name="name"
               class="bg-Background-light dark:bg-Background-dark border border-Border dark:border-Border-dark text-Text-dark dark:text-Text-light text-sm rounded-base focus:ring-2 focus:ring-Orange-vibrant focus:border-Orange-vibrant block w-full px-4 py-3 shadow-xs placeholder:text-body dark:placeholder:text-body-light"
               placeholder="Tu nombre"
               required
@@ -48,6 +55,7 @@ import IconsTecnology from "./IconsTecnology.astro";
             <input
               type="email"
               id="email"
+              name="email"
               class="bg-Background-light dark:bg-Background-dark border border-Border dark:border-Border-dark text-Text-dark dark:text-Text-light text-sm rounded-base focus:ring-2 focus:ring-Orange-vibrant focus:border-Orange-vibrant block w-full px-4 py-3 shadow-xs placeholder:text-body dark:placeholder:text-body-light"
               placeholder="tu.email@example.com"
               required
@@ -63,13 +71,24 @@ import IconsTecnology from "./IconsTecnology.astro";
             </label>
             <textarea
               id="message"
+              name="message"
               rows="5"
               class="bg-Background-light dark:bg-Background-dark border border-Border dark:border-Border-dark text-Text-dark dark:text-Text-light text-sm rounded-base focus:ring-2 focus:ring-Orange-vibrant focus:border-Orange-vibrant block w-full px-4 py-3 shadow-xs placeholder:text-body dark:placeholder:text-body-light resize-none"
               placeholder="Escribe tu mensaje aquí..."
               required></textarea>
           </div>
 
-          <Button variant="primary"> Enviar </Button>
+          <!-- Mensaje de resultado -->
+          <div id="result" class="text-sm font-medium hidden"></div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="px-8 py-4 font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl inline-flex items-center cursor-pointer justify-center gap-2 bg-Orange-vibrant dark:bg-Orange-vibrant-dark hover:bg-Orange-vibrant/90 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="btn-text">Enviar</span>
+            <span id="btn-loading" class="hidden">Enviando...</span>
+          </button>
         </form>
       </div>
 
@@ -116,7 +135,7 @@ import IconsTecnology from "./IconsTecnology.astro";
         </div>
 
         <!-- Phone -->
-        <div
+        <!-- <div
           class="flex items-start gap-4 pb-4 border-b border-Border dark:border-Border-dark"
         >
           <div
@@ -147,7 +166,7 @@ import IconsTecnology from "./IconsTecnology.astro";
               +1 (234) 567-890
             </a>
           </div>
-        </div>
+        </div> -->
 
         <!-- Location -->
         <div
@@ -217,4 +236,61 @@ import IconsTecnology from "./IconsTecnology.astro";
       </div>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById("conctact-form") as HTMLFormElement;
+    const result = document.getElementById("result") as HTMLDivElement;
+    const submitBtn = document.getElementById(
+      "submit-btn"
+    ) as HTMLButtonElement;
+    const btnText = document.getElementById("btn-text") as HTMLSpanElement;
+    const btnLoading = document.getElementById(
+      "btn-loading"
+    ) as HTMLSpanElement;
+
+    form?.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      // Mostrar estado de carga
+      submitBtn.disabled = true;
+      btnText.classList.add("hidden");
+      btnLoading.classList.remove("hidden");
+      result.classList.add("hidden");
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          // Éxito
+          result.innerHTML = "✅ ¡Mensaje enviado con éxito!";
+          result.className =
+            "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base";
+          result.classList.remove("hidden");
+          form.reset();
+        } else {
+          // Error del servidor
+          throw new Error(data.message || "Error al enviar");
+        }
+      } catch (error) {
+        // Error de red o del servidor
+        result.innerHTML = "❌ Algo salió mal. Por favor intenta de nuevo.";
+        result.className =
+          "text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-base";
+        result.classList.remove("hidden");
+        console.error("Error:", error);
+      } finally {
+        // Restaurar botón
+        submitBtn.disabled = false;
+        btnText.classList.remove("hidden");
+        btnLoading.classList.add("hidden");
+      }
+    });
+  </script>
 </section>
