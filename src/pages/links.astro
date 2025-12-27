@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LinkTreeItem from "../components/LinkTreeItem.astro";
+import IconsTecnology from "../components/IconsTecnology.astro";
+import LinkedInIcon from "../components/LinkedInIcon.astro";
+---
+
+<Layout class="dark">
+  <main class="min-h-screen bg-Background-dark py-12 px-4">
+    <!-- Contenedor principal -->
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      <!-- Header / Perfil -->
+      <!-- Badge -->
+      <div
+        class="inline-flex items-center mb-2 gap-2 px-4 py-2 bg-Orange-vibrant/10 border border-Orange-vibrant/30 rounded-full text-xs xl:text-xs xl:px-3 xl:py-1.5 text-Text-dark dark:text-Text-light"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-Orange-vibrant dark:bg-Orange-vibrant-dark opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-2 w-2 bg-Orange-vibrant dark:bg-Orange-vibrant-dark"
+          ></span>
+        </span>
+        Disponible
+      </div>
+
+      <div class="text-center mb-12">
+        <!-- Avatar -->
+        <div class="m-auto relative inline-block">
+          <img
+            src="avatar.svg"
+            alt="Avatar de Fabian Lugo"
+            class="w-32 h-32 rounded-full mb:w-64 mb:h-64"
+          />
+        </div>
+
+        <!-- Nombre y descripción -->
+        <h1 class="text-2xl font-bold text-Text-dark dark:text-Text-light mb-3">
+          Fabian Lugo
+        </h1>
+        <p class="text-lg text-Text-dark/80 dark:text-Text-light/80 mb-4">
+          Desarrollador Full Stack | Creador de contenido
+        </p>
+
+        <!-- Enlaces principales -->
+        <div class="space-y-4 mb-8 w-full">
+          <LinkTreeItem
+            href="http://localhost:4321/"
+            title="Portfolio"
+            description="Explora mis proyectos y trabajos"
+          >
+            <IconsTecnology name="googlechrome" size={28} slot="icon" />
+          </LinkTreeItem>
+          <LinkTreeItem
+            href="https://www.linkedin.com/in/fabian-lugo-/"
+            title="LinkedIn"
+            description="Conéctate conmigo profesionalmente"
+          >
+            <LinkedInIcon size={28} slot="icon" />
+          </LinkTreeItem>
+
+          <LinkTreeItem
+            href="https://github.com/LugoDv"
+            title="GitHub"
+            description="Mira mi código y contribuciones"
+          >
+            <IconsTecnology name="github" size={28} slot="icon" />
+          </LinkTreeItem>
+
+          <LinkTreeItem
+            href="mailto:falugopersonal@gmail.com"
+            title="Contacto"
+            description="Envíame un mensaje"
+          >
+            <IconsTecnology name="gmail" size={28} slot="icon" />
+          </LinkTreeItem>
+
+          <LinkTreeItem
+            href="https://www.tiktok.com/@fabian_lugo_"
+            title="Tiktok"
+            description="Sígueme en TikTok"
+          >
+            <IconsTecnology name="tiktok" size={28} slot="icon" />
+          </LinkTreeItem>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 pb-8">
+          <p class="text-sm text-Text-dark/60 dark:text-Text-light/60">
+            © 2025 - Hecho con 💙 usando Astro
+          </p>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    /* Animación de entrada opcional */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    main > div > div {
+      animation: fadeInUp 0.5s ease-out;
+    }
+  </style>
+</Layout>

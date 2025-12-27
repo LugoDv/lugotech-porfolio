@@ -6,7 +6,10 @@ import ProgressBar from "./ProgressBar.astro";
 import Badge from "./badge.astro";
 ---
 
-<section class="about-me py-20 text-Foreground-dark dark:text-Background-light">
+<section
+  id="about"
+  class="about-me py-20 text-Foreground-dark dark:text-Background-light"
+>
   <h2 class="text-center text-3xl font-bold pb-8">About Me</h2>
 
   <div
@@ -25,15 +28,21 @@ import Badge from "./badge.astro";
         />
         Who I Am
       </h3>
-      <p class="mb-4 font-medium">
-        I'm a passionate developer with 5+ years of experience building web
-        applications and contributing to open source projects. I specialize in
-        creating clean, efficient, and maintainable code.
+      <p class="mb-4 font-normal">
+        Desarrollador Java experimentado especializado en diseñar y optimizar
+        sistemas backend con Java, Spring Boot, SQL/NoSQL y APIs RESTful. Reduje
+        incidentes de servicios de telecomunicaciones en un 30% e incrementé la
+        satisfacción del cliente en un 50%. Fundé y dirigí una empresa de
+        soluciones tecnológicas, impulsando automatización e implementación
+        estratégica. Actualmente cursando un diploma en Desarrollo de
+        Aplicaciones Web (DAW), expandiéndome hacia desarrollo full-stack y
+        perfeccionando habilidades de gestión para entregar soluciones
+        escalables de alto impacto.
       </p>
-      <p class="mb-4 font-medium">
-        When I'm not coding, you can find me exploring new technologies, writing
-        tech articles, or enjoying a fresh cup of coffee while debugging complex
-        problems.
+      <p class="mb-4 font-normal">
+        Cuando no estoy codificando, puedes encontrarme explorando nuevas
+        tecnologías, escribiendo artículos tecnológicos o disfrutando de una
+        taza de café fresca mientras depuro problemas complejos.
       </p>
       <div class="mt-6 grid grid-cols-3 gap-3 text-center">
         <div
@@ -42,7 +51,7 @@ import Badge from "./badge.astro";
           <div
             class="font-bold text-3xl text-Orange-vibrant dark:text-Orange-vibrant-dark"
           >
-            57
+            30
           </div>
           <div class="text-sm text-body">Repositories</div>
         </div>
@@ -52,7 +61,7 @@ import Badge from "./badge.astro";
           <div
             class="font-bold text-3xl text-Orange-vibrant dark:text-Orange-vibrant-dark"
           >
-            3.2K
+            245
           </div>
           <div class="text-sm text-body">Commits</div>
         </div>
@@ -62,7 +71,7 @@ import Badge from "./badge.astro";
           <div
             class="font-bold text-3xl text-Orange-vibrant dark:text-Orange-vibrant-dark"
           >
-            20
+            4
           </div>
           <div class="text-sm text-body">Followers</div>
         </div>
@@ -91,6 +100,7 @@ import Badge from "./badge.astro";
         <Badge label="JavaScript" />
         <Badge label="Java" />
         <Badge label="Php" />
+        <Badge label="Spring" />
       </div>
     </div>
   </div>

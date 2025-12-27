@@ -1,0 +1,54 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { href, title, description, class: className = "" } = Astro.props;
+const hasIcon = Astro.slots.has("icon");
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`group relative block w-full max-w-2xl mx-auto p-5 rounded-xl border-2 border-Border dark:border-Border-dark bg-card-surface dark:bg-card-surface-dark hover:border-Orange-vibrant dark:hover:border-Orange-vibrant-dark transition-all duration-300 hover:shadow-lg hover:scale-105 ${className}`}
+>
+  <div class="flex items-center gap-4">
+    {
+      hasIcon && (
+        <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-Orange-vibrant/10 dark:bg-Orange-vibrant-dark/10 text-Orange-vibrant dark:text-Orange-vibrant-dark text-2xl group-hover:scale-110 transition-transform">
+          <slot name="icon" />
+        </div>
+      )
+    }
+    <div class="flex-1">
+      <h3
+        class="text-lg font-semibold text-card-text dark:text-card-text-dark group-hover:text-Orange-vibrant dark:group-hover:text-Orange-vibrant-dark transition-colors"
+      >
+        {title}
+      </h3>
+      {
+        description && (
+          <p class="text-sm text-Text-dark/70 dark:text-Text-light/70 mt-1">
+            {description}
+          </p>
+        )
+      }
+    </div>
+    <svg
+      class="w-6 h-6 text-Text-dark/50 dark:text-Text-light/50 group-hover:text-Orange-vibrant dark:group-hover:text-Orange-vibrant-dark group-hover:translate-x-1 transition-all"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 5l7 7-7 7"></path>
+    </svg>
+  </div>
+</a>
