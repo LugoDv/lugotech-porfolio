@@ -176,5 +176,33 @@ import ToggleGrid from "./ToggleGrid.astro";
         }
       });
     }
+
+    // ===== MOBILE MENU TOGGLE =====
+    const hamburger = document.querySelector(
+      '[data-collapse-toggle="navbar-default"]'
+    );
+    const navbarMenu = document.getElementById("navbar-default");
+
+    if (hamburger && navbarMenu) {
+      hamburger.addEventListener("click", function () {
+        // Toggle hidden class
+        navbarMenu.classList.toggle("hidden");
+
+        // Update aria-expanded attribute
+        const isExpanded = !navbarMenu.classList.contains("hidden");
+        hamburger.setAttribute("aria-expanded", isExpanded.toString());
+      });
+
+      // Close menu cuando se hace click en un link
+      navbarMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          // Prevenir que el evento suba hasta el hamburguesa
+          event.stopPropagation();
+
+          navbarMenu.classList.add("hidden");
+          hamburger.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
   </script>
 </nav>

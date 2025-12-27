@@ -1,6 +1,8 @@
 ---
 import Button from "./Button.astro";
 import IconsTecnology from "./IconsTecnology.astro";
+
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
 
 <section id="contact">
@@ -22,11 +24,7 @@ import IconsTecnology from "./IconsTecnology.astro";
           Enviar mensaje
         </h3>
         <form id="conctact-form" class="space-y-6 text-left" method="POST">
-          <input
-            type="hidden"
-            name="access_key"
-            value="ded2113a-20eb-4f9c-bfaa-b71fa6276ec8"
-          />
+          <input type="hidden" name="access_key" value={ACCESS_KEY} />
 
           <div>
             <label
