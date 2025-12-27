@@ -3,9 +3,10 @@ interface Props {
   label: string;
   percentage: number;
   class?: string;
+  animated?: boolean;
 }
 
-const { label, percentage, class: className } = Astro.props;
+const { label, percentage, class: className, animated = true } = Astro.props;
 ---
 
 <div class:list={["space-y-2", className]}>
@@ -13,13 +14,75 @@ const { label, percentage, class: className } = Astro.props;
     <span class="font-medium text-Foreground-dark dark:text-gray-300"
       >{label}</span
     >
-    <span class="font-medium text-body">{percentage}%</span>
+    <span class="font-medium text-body">
+      {animated ? (
+        <span class="contador-numero" data-target={percentage}>0</span>
+      ) : (
+        <span>{percentage}</span>
+      )}%
+    </span>
   </div>
   <div class="w-full bg-neutral-quaternary rounded-full h-2">
     <div
-      class="bg-Orange-vibrant dark:bg-Orange-vibrant-dark h-2 rounded-full transition-all duration-300"
-      style={`width: ${percentage}%`}
+      class:list={[
+        animated ? "barra-llenado" : "",
+        "bg-Orange-vibrant dark:bg-Orange-vibrant-dark h-2 rounded-full transition-all duration-300",
+      ]}
+      style={animated ? "width: 0%" : `width: ${percentage}%`}
+      data-width={percentage}
     >
     </div>
   </div>
 </div>
+
+{animated && (
+  <script>
+    // Lazy load GSAP solo si hay barras animadas
+    async function initProgressBarAnimations() {
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animar contadores
+      const contadores = document.querySelectorAll(".contador-numero");
+      contadores.forEach((contador) => {
+        const valorFinal = parseInt(contador.getAttribute("data-target") || "0");
+        
+        gsap.to(contador, {
+          innerText: valorFinal,
+          duration: 2,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: contador,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      // Animar barras
+      const barras = document.querySelectorAll(".barra-llenado");
+      barras.forEach((barra) => {
+        const porcentaje = barra.getAttribute("data-width") || "0";
+
+        gsap.to(barra, {
+          width: porcentaje + "%",
+          duration: 1.8,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: barra,
+            start: "top 95%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+    }
+
+    // Ejecutar cuando haya elementos para animar
+    if (document.querySelector(".contador-numero") || document.querySelector(".barra-llenado")) {
+      initProgressBarAnimations();
+    }
+  </script>
+)}

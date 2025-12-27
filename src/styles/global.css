@@ -106,4 +106,46 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Animación de reveal con Intersection Observer */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Estilos para elementos que se revelan */
+.item-revelar {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.item-revelar.animate-in {
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.item-revelar:nth-child(2).animate-in {
+  animation-delay: 0.2s;
+}
+
+.item-revelar:nth-child(3).animate-in {
+  animation-delay: 0.4s;
+}
+
+.item-revelar:nth-child(4).animate-in {
+  animation-delay: 0.6s;
+}
+
+.item-revelar:nth-child(5).animate-in {
+  animation-delay: 0.8s;
+}
+
+.item-revelar:nth-child(6).animate-in {
+  animation-delay: 1s;
 }

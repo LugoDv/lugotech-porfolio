@@ -24,6 +24,25 @@ interface Props {
   </head>
   <body class={Astro.props.class}>
     <slot />
+
+    <!-- Intersection Observer para animaciones de reveal -->
+    <script is:inline>
+      const observerConfig = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerConfig);
+
+      // Observar elementos con clase item-revelar
+      document.querySelectorAll(".item-revelar").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+
     <script
       is:inline
       src="https://cdn.jsdelivr.net/npm/flowbite@4.0.0/dist/flowbite.min.js"
