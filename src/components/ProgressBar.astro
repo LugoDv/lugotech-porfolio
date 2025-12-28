@@ -44,8 +44,21 @@ const { label, percentage, class: className, animated = true } = Astro.props;
       
       gsap.registerPlugin(ScrollTrigger);
 
-      // Animar contadores
+      // Limpiar triggers anteriores para evitar duplicados
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+      // Resetear el estado de las barras y contadores antes de animar
       const contadores = document.querySelectorAll(".contador-numero");
+      contadores.forEach((contador) => {
+        contador.textContent = "0";
+      });
+
+      const barras = document.querySelectorAll(".barra-llenado");
+      barras.forEach((barra) => {
+        (barra as HTMLElement).style.width = "0%";
+      });
+
+      // Animar contadores
       contadores.forEach((contador) => {
         const valorFinal = parseInt(contador.getAttribute("data-target") || "0");
         
@@ -63,7 +76,6 @@ const { label, percentage, class: className, animated = true } = Astro.props;
       });
 
       // Animar barras
-      const barras = document.querySelectorAll(".barra-llenado");
       barras.forEach((barra) => {
         const porcentaje = barra.getAttribute("data-width") || "0";
 
@@ -78,11 +90,20 @@ const { label, percentage, class: className, animated = true } = Astro.props;
           },
         });
       });
+
+      ScrollTrigger.refresh();
     }
 
     // Ejecutar cuando haya elementos para animar
     if (document.querySelector(".contador-numero") || document.querySelector(".barra-llenado")) {
       initProgressBarAnimations();
     }
+
+    // Ejecutar en cada navegación con ClientRouter
+    document.addEventListener("astro:page-load", () => {
+      if (document.querySelector(".contador-numero") || document.querySelector(".barra-llenado")) {
+        initProgressBarAnimations();
+      }
+    });
   </script>
 )}
