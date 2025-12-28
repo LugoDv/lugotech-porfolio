@@ -145,14 +145,23 @@ import ToggleGrid from "./ToggleGrid.astro";
           window.matchMedia("(prefers-color-scheme: dark)").matches)
       ) {
         themeToggleLightIcon?.classList.remove("hidden");
+        themeToggleDarkIcon?.classList.add("hidden");
       } else {
         themeToggleDarkIcon?.classList.remove("hidden");
+        themeToggleLightIcon?.classList.add("hidden");
       }
 
       const themeToggleBtn = document.getElementById("theme-toggle");
 
       if (themeToggleBtn) {
-        themeToggleBtn.addEventListener("click", function () {
+        // Remover listener anterior si existe
+        const oldListener = themeToggleBtn._clickHandler;
+        if (oldListener) {
+          themeToggleBtn.removeEventListener("click", oldListener);
+        }
+
+        // Crear nuevo listener
+        const clickHandler = function () {
           // toggle icons inside button
           themeToggleDarkIcon?.classList.toggle("hidden");
           themeToggleLightIcon?.classList.toggle("hidden");
@@ -177,7 +186,11 @@ import ToggleGrid from "./ToggleGrid.astro";
               localStorage.setItem("color-theme", "dark");
             }
           }
-        });
+        };
+
+        // Guardar referencia y agregar listener
+        themeToggleBtn._clickHandler = clickHandler;
+        themeToggleBtn.addEventListener("click", clickHandler);
       }
 
       // ===== MOBILE MENU TOGGLE =====
@@ -187,14 +200,23 @@ import ToggleGrid from "./ToggleGrid.astro";
       const navbarMenu = document.getElementById("navbar-default");
 
       if (hamburger && navbarMenu) {
-        hamburger.addEventListener("click", function () {
+        // Remover listener anterior si existe
+        const oldHamburgerListener = hamburger._clickHandler;
+        if (oldHamburgerListener) {
+          hamburger.removeEventListener("click", oldHamburgerListener);
+        }
+
+        const hamburgerHandler = function () {
           // Toggle hidden class
           navbarMenu.classList.toggle("hidden");
 
           // Update aria-expanded attribute
           const isExpanded = !navbarMenu.classList.contains("hidden");
           hamburger.setAttribute("aria-expanded", isExpanded.toString());
-        });
+        };
+
+        hamburger._clickHandler = hamburgerHandler;
+        hamburger.addEventListener("click", hamburgerHandler);
 
         // Close menu cuando se hace click en un link
         navbarMenu.querySelectorAll("a").forEach((link) => {

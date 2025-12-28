@@ -29,19 +29,28 @@ interface Props {
 
     <!-- Intersection Observer para animaciones de reveal -->
     <script is:inline>
+      let observerInstance = null;
+
       function initializeObserver() {
+        // Limpiar observer anterior si existe
+        if (observerInstance) {
+          document.querySelectorAll(".item-revelar").forEach((el) => {
+            observerInstance.unobserve(el);
+          });
+        }
+
         const observerConfig = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
+        observerInstance = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("animate-in");
-              observer.unobserve(entry.target);
+              observerInstance.unobserve(entry.target);
             }
           });
         }, observerConfig);
 
         document.querySelectorAll(".item-revelar").forEach((el) => {
-          observer.observe(el);
+          observerInstance.observe(el);
         });
       }
 
@@ -52,16 +61,16 @@ interface Props {
       });
     </script>
 
-    <script
-      is:inline
-      src="https://cdn.jsdelivr.net/npm/flowbite@4.0.0/dist/flowbite.min.js"
-    ></script>
+    <!-- Flowbite - Importado desde npm -->
+    <script>
+      import * as flowbite from "flowbite";
 
-    <script is:inline>
+      // Inicializar Flowbite en carga inicial
+      flowbite.initFlowbite();
+
+      // Reinicializar Flowbite después de navegación con ClientRouter
       document.addEventListener("astro:page-load", () => {
-        if (typeof window.initFlowbite === "function") {
-          window.initFlowbite();
-        }
+        flowbite.initFlowbite();
       });
     </script>
   </body>
