@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import LinkTreeItem from "../components/LinkTreeItem.astro";
 import IconsTecnology from "../components/IconsTecnology.astro";
 import LinkedInIcon from "../components/LinkedInIcon.astro";
+import Image from "astro/components/Image.astro";
+import { lazy } from "astro:schema";
 ---
 
 <Layout class="dark">
@@ -28,9 +30,13 @@ import LinkedInIcon from "../components/LinkedInIcon.astro";
       <div class="text-center mb-12">
         <!-- Avatar -->
         <div class="m-auto relative inline-block">
-          <img
-            src="avatar.svg"
+          <Image
+            transition:name="perfil"
+            src="/avatar.svg"
+            loading={"eager"}
             alt="Avatar de Fabian Lugo"
+            width={128}
+            height={128}
             class="w-32 h-32 rounded-full mb:w-64 mb:h-64"
           />
         </div>
@@ -53,7 +59,7 @@ import LinkedInIcon from "../components/LinkedInIcon.astro";
         <!-- Enlaces principales -->
         <div class="space-y-4 mb-8 w-full">
           <LinkTreeItem
-            href="http://localhost:4321/"
+            href="/"
             title="Portafolio"
             description="Explora mis proyectos y trabajos"
           >

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   class?: string;
@@ -19,6 +20,7 @@ interface Props {
       href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
 
     <title>Lugo tech</title>
   </head>
@@ -27,19 +29,26 @@ interface Props {
 
     <!-- Intersection Observer para animaciones de reveal -->
     <script is:inline>
-      const observerConfig = { threshold: 0.1 };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerConfig);
+      function initializeObserver() {
+        const observerConfig = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerConfig);
 
-      // Observar elementos con clase item-revelar
-      document.querySelectorAll(".item-revelar").forEach((el) => {
-        observer.observe(el);
+        document.querySelectorAll(".item-revelar").forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      initializeObserver();
+
+      document.addEventListener("astro:page-load", () => {
+        initializeObserver();
       });
     </script>
 
