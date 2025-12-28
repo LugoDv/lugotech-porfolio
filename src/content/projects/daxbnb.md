@@ -1,6 +1,6 @@
 ---
 title: "Daxbnb - Airbnb Clone"
-description: "A full-stack Airbnb clone with property listings, booking system, user authentication, and payment integration. Built with modern web technologies."
+description: "Desarrollé un sistema completo de alquiler vacacional donde el desafío principal fue la lógica de disponibilidad. Implementé un motor de reservas en tiempo real que previene conflictos de fechas y un sistema de filtros avanzados que permite segmentar búsquedas por precio, ubicación y características, garantizando una respuesta inmediata del servidor."
 image: "../../assets/images/daxbnb.png"
 projectUrl: "https://github.com/yourusername/daxbnb"
 technologies: ["Java", "MySQL", "Bootstrap", "Docker"]

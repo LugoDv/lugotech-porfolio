@@ -1,6 +1,7 @@
 ---
 import Button from "./Button.astro";
 import IconsTecnology from "./IconsTecnology.astro";
+import LinkedInIcon from "./LinkedInIcon.astro";
 
 const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
@@ -18,11 +19,26 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
       <div
         class="item-revelar contact-form bg-neutral-primary-soft border border-Border dark:border-Border-dark rounded-base shadow-xs p-8"
       >
-        <h3
-          class="text-2xl font-bold text-Text-dark dark:text-Text-light mb-6 text-left"
-        >
-          Enviar mensaje
-        </h3>
+        <div class="flex items-center align-middle gap-4 mb-6">
+          <svg
+            class="w-8 h-8 text-Orange-vibrant dark:text-Orange-vibrant-dark"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
+          <h3
+            class="text-2xl font-bold text-Text-dark dark:text-Text-light text-left"
+          >
+            Enviar mensaje
+          </h3>
+        </div>
         <form id="conctact-form" class="space-y-6 text-left" method="POST">
           <input type="hidden" name="access_key" value={ACCESS_KEY} />
 
@@ -209,25 +225,20 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
           </h4>
           <div class="flex gap-4">
             <a
-              href="#"
+              href="https://github.com/LuGoDv"
+              target="_blank"
               class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
               aria-label="GitHub"
             >
-              <IconsTecnology name="Github" size={32} />
+              <IconsTecnology name="Github" size={24} />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/fabian-lugo-/"
+              target="_blank"
               class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
               aria-label="LinkedIn"
             >
-              <IconsTecnology name="Linkedin" size={32} />
-            </a>
-            <a
-              href="#"
-              class="text-Text-dark dark:text-Text-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
-              aria-label="Twitter"
-            >
-              <IconsTecnology name="X" size={32} />
+              <LinkedInIcon size={24} />
             </a>
           </div>
         </div>

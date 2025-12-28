@@ -1,9 +1,9 @@
 ---
-title: "Globalleaders"
-description: "Maquetación y desarrollo de chat bot con logica conversacional realizada con python, teniendo en cuenta las necesidades del cliente. manejo de idomas y deployment."
+title: "GlobalLeaders USA"
+description: "Desarrollé una solución integral que incluye la maquetación del chat, la lógica conversacional en Python y su integración como plugin. Implementé un sistema multi-idioma y me encargué del despliegue profesional mediante Docker en el servidor del cliente, asegurando un entorno estable y escalable."
 image: "../../assets/images/global-leaders.png"
-projectUrl: "https://github.com/yourusername/ecommerce-platform"
-technologies: ["Python", "Php", "FastAPI"]
+projectUrl: "https://regalexia.com/trabaja-campamento-verano-eeuu-global-leaders-usa/"
+technologies: ["Python", "Php", "FastAPI", "Docker"]
 featured: true
 publishedDate: 2024-08-20
 order: 2
