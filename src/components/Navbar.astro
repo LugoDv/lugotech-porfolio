@@ -3,7 +3,7 @@ import ToggleGrid from "./ToggleGrid.astro";
 ---
 
 <nav
-  class="bg-Background-light dark:bg-Forenground-dark fixed w-full z-20 top-0 start-0 border-b border-Neutral-300 dark:border-Neutral-700-dark"
+  class="bg-Background-light/30 backdrop-blur-md dark:bg-Forenground-dark/20 dark:backdrop-blur-md fixed w-full z-20 top-0 start-0 border-b border-Neutral-300 dark:border-Neutral-700-dark"
 >
   <div
     class="max-w-7x1 flex flex-wrap items-center justify-between mx-auto p-2 md:p-3 xl:py-0 xl:text-sm"
@@ -70,7 +70,7 @@ import ToggleGrid from "./ToggleGrid.astro";
       id="navbar-default"
     >
       <ul
-        class="flex flex-col p-2 mt-2 font-medium border rounded-lg border-default bg-Background-light dark:bg-Forenground-dark md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+        class="flex flex-col bg-transparent p-2 mt-2 font-medium border rounded-lg border-default md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
       >
         <li>
           <a
@@ -83,14 +83,14 @@ import ToggleGrid from "./ToggleGrid.astro";
           <a
             href="#about"
             class="block px-3 py-2 rounded text-heading hover:bg-neutral-tertiary md:bg-transparent md:hover:text-Orange-vibrant md:p-0"
-            >About</a
+            >About me</a
           >
         </li>
         <li>
           <a
             href="#projects"
             class="block px-3 py-2 rounded text-heading hover:bg-neutral-tertiary md:bg-transparent md:hover:text-Orange-vibrant md:p-0"
-            >Projects</a
+            >Projectos</a
           >
         </li>
         <!-- <li>
@@ -111,7 +111,7 @@ import ToggleGrid from "./ToggleGrid.astro";
           <a
             href="#contact  "
             class="block px-3 py-2 rounded text-heading hover:bg-neutral-tertiary md:bg-transparent md:hover:text-Orange-vibrant md:p-0"
-            >Contact</a
+            >Contacto</a
           >
         </li>
       </ul>
