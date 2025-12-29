@@ -28,3 +28,18 @@ Si quieres echar un vistazo al código o correrlo localmente:
    ```bash
    git clone [https://github.com/tu-usuario/lugotech-portfolio.git](https://github.com/tu-usuario/lugotech-portfolio.git)
    ```
+2. **Instala las dependencias:**
+   ```bash
+   cd lugotech-portfolio
+   npm install
+   ```
+3. **Corre el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+## ⚖️ Licencia
+
+Este proyecto está bajo la Licencia MIT. Siéntete libre de usar el código como referencia, pero se agradecen los créditos si utilizas partes significativas del diseño o la lógica.
+
+Consulta el archivo [LICENSE](./LICENSE) para más detalles.
