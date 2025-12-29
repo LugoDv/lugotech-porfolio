@@ -1,0 +1,29 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+
+const path = Astro.url.pathname;
+---
+
+<Layout>
+  <main
+    class="min-h-screen flex flex-col items-center justify-center bg-Background-light dark:bg-Background-dark px-4 py-12"
+  >
+    <div class="text-center max-w-2xl flex flex-col items-center">
+      <Image src="/logo.webp" alt="Logo LugoTech" width={200} height={200} />
+      <h1 class="text-6xl font-bold mb-4 text-Text-dark dark:text-Text-light">
+        404
+      </h1>
+      <p class="text-lg mb-8 text-Text-dark/80 dark:text-Text-light/80">
+        Lo sentimos, la página que buscas no se pudo encontrar.
+        {path !== "/" ? `La ruta "${path}" no existe.` : ""}
+      </p>
+      <a
+        href="/"
+        class="inline-block px-6 py-3 bg-Orange-vibrant text-white font-medium rounded-base hover:bg-Orange-vibrant/90 transition-colors"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+</Layout>

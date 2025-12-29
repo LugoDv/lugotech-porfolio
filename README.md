@@ -1,46 +1,30 @@
-# Astro Starter Kit: Basics
+# 🚀 Lugotech.dev | Portfolio Personal
 
-```sh
-npm create astro@latest -- --template basics
-```
+¡Bienvenido al repositorio de mi portfolio profesional! Este proyecto es el resultado de mi transición de las telecomunicaciones al desarrollo **Full-Stack**, enfocado en crear experiencias web rápidas, accesibles y con un diseño impecable.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Este sitio no es solo una carta de presentación, sino un campo de pruebas donde implemento las últimas tecnologías de desarrollo moderno.
 
-## 🚀 Project Structure
+## Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Framework:** [Astro](https://astro.build/) (Static Site Generation)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Tailwind Merge / Native CSS]
+- **Deployment:** [Cloudflare Pages](https://pages.cloudflare.com/)
+- **SEO:** Sitemap dinámico y optimización de robots.txt
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Características Principales
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- **Velocidad Extrema:** Gracias a la arquitectura de "islas" de Astro, el sitio carga casi instantáneamente.
+- **Diseño Responsive:** Optimizado para dispositivos móviles, tablets y escritorio.
+- **Dark Mode:** Estética moderna con acentos naranjas y azules profundos.
+- **SEO Ready:** Sitemap indexado automáticamente y metadatos optimizados para motores de búsqueda.
+- **Toolbox Técnico:** Sección dedicada que muestra mi stack (Java, PHP, React, Docker, etc.).
 
-## 🧞 Commands
+## Instalación y Desarrollo
 
-All commands are run from the root of the project, from a terminal:
+Si quieres echar un vistazo al código o correrlo localmente:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Clona el repositorio:**
+   ```bash
+   git clone [https://github.com/tu-usuario/lugotech-portfolio.git](https://github.com/tu-usuario/lugotech-portfolio.git)
+   ```
