@@ -277,7 +277,7 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 
           if (response.ok && data.success) {
             // Éxito
-            result.innerHTML = "✅ ¡Mensaje enviado con éxito!";
+            result.textContent = "✅ ¡Mensaje enviado con éxito!";
             result.className =
               "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base";
             result.classList.remove("hidden");
