@@ -1,4 +1,5 @@
 ---
+import Image from "astro/components/Image.astro";
 import Button from "./Button.astro";
 import CodeIcon from "./CodeIcon.astro";
 import MessageIcon from "./MessageIcon.astro";
@@ -45,12 +46,14 @@ import MessageIcon from "./MessageIcon.astro";
         Disponible para nuevos proyectos
       </div>
       <div class="flex justify-center">
-        <img
+        <Image
           transition:name="perfil"
           class="object-contain translate-x-1.5 w-48 h-48 rounded-full md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-56 xl:h-56"
-          src="avatar.svg"
+          src="/avatar.svg"
           alt="avatar"
-          srcset=""
+          width={288}
+          height={288}
+          loading={"eager"}
         />
       </div>
 

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import ToggleGrid from "./ToggleGrid.astro";
 ---
 
@@ -10,10 +11,13 @@ import ToggleGrid from "./ToggleGrid.astro";
   >
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse -my-2">
-      <img
-        src="logo.webp"
+      <Image
+        src="/logo.webp"
+        width={96}
+        height={96}
         class="h-16 md:h-20 lg:h-24 xl:h-20 w-auto dark:bg-transparent object-contain"
         alt="Logo"
+        loading={"eager"}
       />
     </a>
 
