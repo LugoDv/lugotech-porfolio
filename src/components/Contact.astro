@@ -6,7 +6,7 @@ import LinkedInIcon from "./LinkedInIcon.astro";
 const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
 
-<section id="contact">
+<section id="contact" data-astro-rerun-on-hydrate>
   <div class="container contenedor-revelar mx-auto px-4 py-20 text-center">
     <h2 class="text-4xl font-bold mb-4 dark:text-white">Get in Touch</h2>
     <p class="font-medium text-lg text-body dark:text-body-light mb-8">
@@ -141,7 +141,7 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
             </h4>
             <a
               href="mailto:contact@example.com"
-              class="text-body dark:text-body-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
+              class="text-body w-auto text-sm dark:text-body-light hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark transition-colors"
             >
               falugopersonal@gmail.com
             </a>
@@ -212,7 +212,7 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
             <h4 class="font-bold text-Text-dark dark:text-Text-light mb-1">
               Ubicación
             </h4>
-            <p class="text-body dark:text-body-light">
+            <p class="text-body text-sm dark:text-body-light">
               Barcelona<br />España
             </p>
           </div>
@@ -246,60 +246,70 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
     </div>
   </div>
 
-  <script>
-    const form = document.getElementById("conctact-form") as HTMLFormElement;
-    const result = document.getElementById("result") as HTMLDivElement;
-    const submitBtn = document.getElementById(
-      "submit-btn"
-    ) as HTMLButtonElement;
-    const btnText = document.getElementById("btn-text") as HTMLSpanElement;
-    const btnLoading = document.getElementById(
-      "btn-loading"
-    ) as HTMLSpanElement;
+  <script is:inline>
+    function initContactForm() {
+      const form = document.getElementById("conctact-form");
+      const result = document.getElementById("result");
+      const submitBtn = document.getElementById("submit-btn");
+      const btnText = document.getElementById("btn-text");
+      const btnLoading = document.getElementById("btn-loading");
 
-    form?.addEventListener("submit", async function (e) {
-      e.preventDefault();
+      if (!form) return;
 
-      // Mostrar estado de carga
-      submitBtn.disabled = true;
-      btnText.classList.add("hidden");
-      btnLoading.classList.remove("hidden");
-      result.classList.add("hidden");
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-      const formData = new FormData(form);
+        // Mostrar estado de carga
+        submitBtn.disabled = true;
+        btnText.classList.add("hidden");
+        btnLoading.classList.remove("hidden");
+        result.classList.add("hidden");
 
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData,
-        });
+        const formData = new FormData(form);
 
-        const data = await response.json();
+        try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+          });
 
-        if (response.ok && data.success) {
-          // Éxito
-          result.innerHTML = "✅ ¡Mensaje enviado con éxito!";
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            // Éxito
+            result.innerHTML = "✅ ¡Mensaje enviado con éxito!";
+            result.className =
+              "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base";
+            result.classList.remove("hidden");
+            form.reset();
+          } else {
+            // Error del servidor
+            throw new Error(data.message || "Error al enviar");
+          }
+        } catch (error) {
+          // Error de red o del servidor
+          result.innerHTML = "❌ Algo salió mal. Por favor intenta de nuevo.";
           result.className =
-            "text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-base";
+            "text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-base";
           result.classList.remove("hidden");
-          form.reset();
-        } else {
-          // Error del servidor
-          throw new Error(data.message || "Error al enviar");
+          console.error("Error:", error);
+        } finally {
+          // Restaurar botón
+          submitBtn.disabled = false;
+          btnText.classList.remove("hidden");
+          btnLoading.classList.add("hidden");
         }
-      } catch (error) {
-        // Error de red o del servidor
-        result.innerHTML = "❌ Algo salió mal. Por favor intenta de nuevo.";
-        result.className =
-          "text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-base";
-        result.classList.remove("hidden");
-        console.error("Error:", error);
-      } finally {
-        // Restaurar botón
-        submitBtn.disabled = false;
-        btnText.classList.remove("hidden");
-        btnLoading.classList.add("hidden");
-      }
-    });
+      });
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initContactForm);
+    } else {
+      initContactForm();
+    }
+
+    // Para navegación client-side (View Transitions)
+    document.addEventListener("astro:after-swap", initContactForm);
   </script>
 </section>

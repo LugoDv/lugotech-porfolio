@@ -1,8 +1,8 @@
 ---
 title: "Galería de arte"
-description: " Un portafolio y blog ultrarrápido construido con Astro, aprovechando la generación de sitios estáticos para un rendimiento y SEO óptimos."
-image: "../../assets/images/daxbnb.png"
-projectUrl: "https://github.com/yourusername/portfolio-blog"
+description: "Desarrollé una plataforma integral para artistas que permite la gestión completa de obras de arte. Implementé un sistema de autenticación segura (Login/Registro) y una arquitectura de base de datos para que los usuarios puedan subir y compartir sus creaciones."
+image: "../../assets/images/galeria.png"
+projectUrl: "https://galeriairis.great-site.net/"
 technologies: ["Php", "JavaScript", "CSS"]
 featured: true
 publishedDate: 2024-11-01

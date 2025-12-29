@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  title: string;
+  title?: string;
   description?: string;
   class?: string;
 }
@@ -19,20 +19,20 @@ const hasIcon = Astro.slots.has("icon");
   <div class="flex items-center gap-4">
     {
       hasIcon && (
-        <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-Orange-vibrant/10 dark:bg-Orange-vibrant-dark/10 text-Orange-vibrant dark:text-Orange-vibrant-dark text-2xl group-hover:scale-110 transition-transform">
+        <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-Orange-vibrant/10 dark:bg-Orange-vibrant-dark/10 text-Orange-vibrant dark:text-Text-light dark:group-hover:text-Orange-vibrant-dark text-2xl group-hover:scale-110 transition-transform">
           <slot name="icon" />
         </div>
       )
     }
     <div class="flex-1">
       <h3
-        class="text-lg font-semibold text-card-text dark:text-card-text-dark group-hover:text-Orange-vibrant dark:group-hover:text-Orange-vibrant-dark transition-colors"
+        class="text-lg font-semibold text-card-text dark:text-card-text-dark group-hover:text-Orange-vibrant transition-colors"
       >
         {title}
       </h3>
       {
         description && (
-          <p class="text-sm text-Text-dark/70 dark:text-Text-light/70 mt-1">
+          <p class="text-md text-Text-dark/70 dark:text-Text-light/70 mt-1">
             {description}
           </p>
         )

@@ -90,12 +90,34 @@ const IconComponent = iconComponents[icon];
     <div class="flex flex-wrap gap-2 mt-auto">
       {tecnologies.map((tech) => <Badge label={tech} />)}
     </div>
-    <div class="mt-4">
+    <div class="mt-4 flex gap-2">
       <a href={projectUrl} target="_blank" rel="noopener noreferrer">
         <IconsTecnology
           name="github"
           class="hover:text-Orange-vibrant dark:hover:text-Orange-vibrant-dark dark:text-gray-100 cursor-pointer"
         />
+      </a>
+      <a
+        href={projectUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-black dark:text-white hover:text-Orange-vibrant"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-screen-share-icon lucide-screen-share"
+          ><path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3"
+          ></path><path d="M8 21h8"></path><path d="M12 17v4"></path><path
+            d="m17 8 5-5"></path><path d="M17 3h5v5"></path></svg
+        >
       </a>
     </div>
   </div>
@@ -187,7 +209,7 @@ const IconComponent = iconComponents[icon];
           class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-Orange-vibrant hover:bg-Orange-vibrant/90 rounded-base transition-colors"
         >
           <IconsTecnology name="github" size={20} class="text-white" />
-          View on GitHub
+          Ver en GitHub
         </a>
         <button
           data-modal-hide={modalId}
