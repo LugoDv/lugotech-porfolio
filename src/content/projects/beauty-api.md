@@ -3,7 +3,7 @@ title: "Beauty API"
 description: "Desarrollo de un backend monolítico en Java 17 para la gestión integral de un salón de belleza. Implementa un motor de reservas, seguridad avanzada con Spring Security (JWT/RBAC) y documentación interactiva de endpoints."
 image: "../../assets/images/beauty-api.png"
 projectUrl: "https://github.com/LugoDv/beauty-api"
-technologies: ["Java 17", "Spring Boot", "MySQL", "JWT", "Swagger"]
+technologies: ["Java 17", "SpringBoot", "MySQL", "jsonwebtokens", "Swagger"]
 featured: true
 publishedDate: 2025-01-10
 order: 3
